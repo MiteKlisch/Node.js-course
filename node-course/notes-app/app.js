@@ -13,4 +13,5 @@ console.log(massage);
 console.log(validator.isURL('https://www.youtube.com/?hl=uk&gl=UA'));
 //Example of using 'Chalk'
 console.log(chalk.green.inverse.bold('Success'));
+console.log(chalk.green.inverse.bold('Success'));
 
