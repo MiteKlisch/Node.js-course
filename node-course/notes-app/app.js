@@ -4,3 +4,5 @@
 const getNotes = require('./notes.js');
 massage = getNotes;
 console.log(massage);
+
+console.log('Git');
