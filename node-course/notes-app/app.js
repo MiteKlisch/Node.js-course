@@ -2,16 +2,52 @@
 
 // console.log(FirstName);
 
-const validator = require('validator');
-const chalk = require('chalk');
+//const validator = require('validator');
+
 const getNotes = require('./notes.js');
+const chalk = require('chalk');
+const yargs = require('yargs');
 
-const massage = getNotes;
-console.log(massage);
+//Customize yargs version
+yargs.version('1.1.0')
 
-//Example of using 'Validator'
-console.log(validator.isURL('https://www.youtube.com/?hl=uk&gl=UA'));
-//Example of using 'Chalk'
-console.log(chalk.green.inverse.bold('Success'));
-console.log(chalk.green.inverse.bold('Success'));
 
+//Create add command
+
+yargs.command({
+    command: 'add',
+    describe: 'Add new note',
+    builder: {
+        title:{
+            describe: 'Note title',
+            demandOption: true,
+            type: 'string'
+        },
+        body: {
+            describe: 'Note body',
+            demandOption: true, 
+            type: 'string'
+         }
+    },
+    
+    handler: function(argv){
+        console.log('Title: ' + argv.title);
+        console.log('Body: ' + argv.body);
+        
+    }
+})
+
+//Create remove command
+
+yargs.command({
+    command: 'remove',
+    describe: 'Remove a note',
+    handler: function(){
+        console.log('Removing the note');
+    }
+})
+
+
+// add, remove, read, list
+
+yargs.parse();
