@@ -5,7 +5,7 @@
 //const validator = require('validator');
 
 const notes = require('./notes.js');
-const chalk = require('chalk');
+//const chalk = require('chalk');
 const yargs = require('yargs');
 
 //Customize yargs version
@@ -41,8 +41,15 @@ yargs.command({
 yargs.command({
     command: 'remove',
     describe: 'Remove a note',
-    handler: function(){
-        console.log('Removing the note');
+    builder: {
+        title:{
+            describe: 'Remove title',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler: function(argv){
+        notes.removeNotes(argv.title);
     }
 })
 
