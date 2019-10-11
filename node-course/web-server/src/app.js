@@ -4,12 +4,14 @@ const express = require('express');
 
 
 const app = express();
-
 const publicDirectoryPath = path.join(__dirname, '../public')
 
+app.set('view engine', 'hbs');
 app.use(express.static(path.join(publicDirectoryPath)));
 
-
+app.get('', (req, res) => {
+    res.render('index');
+});
 
 //weather page
 app.get('/weather', (req, res) => {
