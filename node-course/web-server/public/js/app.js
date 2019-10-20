@@ -26,7 +26,7 @@ weatherForm.addEventListener('submit', (e) => {
     messageTwo.textContent = 'Loading...';
     messageTwo.textContent = '';
  
-    fetch('/weather?adress=' + encodeURIComponent(location)).then((response) => {
+    fetch('gi/weather?adress=' + encodeURIComponent(location)).then((response) => {
     response.json().then((data) => {
         if (data.error) {
             console.log( data.error );
